@@ -7,13 +7,22 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+
+
+
+    public function home(){
+
+        return view('welcome');
+
     }
+
+    public function index(){
+
+            $products = Product::oldest()->get();
+
+            return view('product.index', compact('products'));
+        }
+
 
     /**
      * Show the form for creating a new resource.
@@ -36,7 +45,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('product.show',compact('product'));
     }
 
     /**
