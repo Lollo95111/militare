@@ -20,3 +20,4 @@ Route::get('/', [ProductController::class, 'home'])->name('welcome');
 Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
 Route::get('/product/index',[ProductController::class,'index'])->name('product.index');
 Route::get('/product/show/{product}',[ProductController::class,'show'])->name('product.show');
+Route::get('/product/byCategory/{category}', [ProductController::class, 'byCategory'])->name('product.bycategory');

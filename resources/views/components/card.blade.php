@@ -7,6 +7,15 @@
 <h5 class="card-title">{{$product->name}}</h5>
 <p class="card-text">{{$product->description}}</p>
 <p class="card-text">{{$product->price}}€</p>
+
+@if($product->category)
+<p><a href="{{ route('product.bycategory', $product->category) }}">
+    {{ $product->category->name }}
+  </a></p>
+@else
+<p>Senza Categoria</p>
+@endif
+
 <a href="{{route('product.show',$product)}}"><button class="button-container1" type="submit " class=" shadow px-4 py-2 my-4">Dettagli</button></a>
 </div>
 </div>

@@ -14,15 +14,15 @@
                 <table class="table table-striped product-details mt-3 col-6">
                     <thead>
                         <tr>
-                            <th scope="col">{{__('ui.nome')}}:</th>
-                            <th scope="col">{{__('ui.categoria')}}:</th>
-                            <th scope="col">{{__('ui.regione')}}:</th>
-                            <th scope="col">{{__('ui.prezzo')}}:</th>
+                            <th scope="col">Nome:</th>
+                            <th scope="col">Categoria:</th>
+                            <th scope="col">Prezzo:</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th scope="row">{{$product->name}}</th>
+                            <td>{{$product->category->name}}</td>
                             <td>{{$product->price}}€</td>
                         </tr>
                     </tbody>
@@ -30,7 +30,6 @@
 
                 <br>
                 <div class="product-text mt-4">
-
                     <h4 class="text-center"> DESCRIZIONE:</h4>
                     <p class=" text-center">{{$product->description}}</p>
                 </div>

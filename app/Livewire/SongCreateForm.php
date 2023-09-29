@@ -15,6 +15,8 @@ class SongCreateForm extends Component
 
     public $price;
 
+    public $category_id;
+
 
 
 
@@ -24,7 +26,10 @@ class SongCreateForm extends Component
 
         'description' => 'required|min:3',
 
-        'price'=> 'required'
+        'price'=> 'required',
+
+        'category_id'=>'required'
+
 
     ];
 
@@ -36,7 +41,8 @@ class SongCreateForm extends Component
 
         'name.required' => "Il nome non puo' essere vuoto",
         'description.required'=> "La descrizione non può essere vuota",
-        'price'=>"il prezzo non può essere vuoto"
+        'price'=>"il prezzo non può essere vuoto",
+        'category_id'=>"Devi scegliere una categoria !"
 
     ];
 
@@ -55,7 +61,9 @@ public function store(){
 
     'price' =>$this->price,
 
-    'description'=> $this->description
+    'description'=> $this->description,
+
+    'category_id'=>$this->category_id
 
     ]);
 

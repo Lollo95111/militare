@@ -25,6 +25,16 @@
               <div class="text-danger">@error('description') {{ $message }} @enderror</div>
             </div>
 
+            <div class="mb-3">
+                <label  class="form-label">Categoria</label>
+                <select class="form-control" wire:model.blur="category_id">
+    <option value="null" disabled >seleziona una categoria</option>
+                    @foreach($productCategories as $category)
+    <option value="{{$category->id}}">{{$category->name}}</option>
+                 @endforeach
+               </select>
+          </div>
+
               <div class="form-group">
                 <label class="form-control-label">Prezzo</label>
                 <input type="prezzo" class="form-control" wire:model.blur="price">
