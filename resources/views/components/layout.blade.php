@@ -26,5 +26,6 @@
 
     {{$slot}}
     @livewireScripts
+    <script src="https://kit.fontawesome.com/75bc6d0aee.js" crossorigin="anonymous"></script>
 </body>
 </html>

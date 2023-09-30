@@ -6,6 +6,8 @@ use App\Models\Product;
 use Livewire\Component;
 use App\Jobs\ResizeImage;
 use Livewire\WithFileUploads;
+use App\Jobs\GoogleVisionLabelImage;
+use App\Jobs\GoogleVisionSafeSearch;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -139,7 +141,8 @@ class SongCreateForm extends Component
                  $newImage=$product->images()->create(['path' => $image->store($newFileName , 'public')]);
 
                  dispatch(New ResizeImage($newImage->path, 390, 490));
-
+                 dispatch(New GoogleVisionSafeSearch($newImage->id));
+                 dispatch(new GoogleVisionLabelImage($newImage->id));
 
 
              }

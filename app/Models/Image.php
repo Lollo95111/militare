@@ -47,5 +47,10 @@ public function getUrl($w= null,$h= null){
 
 }
 
+protected $casts = [
+
+    'labels' => 'array'
+
+];
 
 }
