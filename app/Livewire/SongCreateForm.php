@@ -4,7 +4,9 @@ namespace App\Livewire;
 
 use App\Models\Product;
 use Livewire\Component;
+use App\Jobs\ResizeImage;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class SongCreateForm extends Component
@@ -24,6 +26,8 @@ class SongCreateForm extends Component
     public $price;
 
     public $category_id;
+
+    public $user_id;
 
 
 
@@ -95,42 +99,61 @@ class SongCreateForm extends Component
 
 
 
-public function store(){
-    $this->validate();
-    $product = Product::create([
-
-    'name' => $this->name,
-
-    'price' =>$this->price,
-
-    'description'=> $this->description,
-
-    'category_id'=>$this->category_id
-
-    ]);
-
-    if(count($this->images)){
-
-        foreach($this->images as $image){
-
-            $product->images()->create(['path' => $image->store('images' , 'public')]);
+    public function store(){
 
 
 
 
-
-        }
-
-        File::deleteDirectory(storage_path('/app/livewire-tmp'));
+        $this->user_id=Auth::user()->id;
 
 
 
 
-    }
+         $this->validate();
 
-    return redirect('')->route('product.create')->with('message','BRAVO.., HAI INSERITO UN ARTICOLO');
+         $product = Product::create([
 
-}
+             'name'=>$this->name,
+
+             'price'=>$this->price,
+
+             'category_id'=>$this->category_id,
+
+             'description'=>$this->description,
+
+             'user_id'=>$this->user_id,
+
+         ]);
+
+
+
+
+         if(count($this->images)){
+
+             foreach($this->images as $image){
+
+                 // $product->images()->create(['path' => $image->store('images' , 'public')]);
+
+                 $newFileName="products/{$product->id}";
+
+                 $newImage=$product->images()->create(['path' => $image->store($newFileName , 'public')]);
+
+                 dispatch(New ResizeImage($newImage->path, 390, 490));
+
+
+
+             }
+
+             File::deleteDirectory(storage_path('/app/livewire-tmp'));
+
+
+
+
+         }
+
+         return redirect('')->route('product.create')->with('message','BRAVO.., HAI INSERITO UN ARTICOLO');
+
+     }
 
 
 

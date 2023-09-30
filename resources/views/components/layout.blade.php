@@ -18,7 +18,11 @@
 
     @endif
 
-
+    @if (session('access.denied'))
+    <div class="alert alert-danger">
+        {{ session('access.denied') }}
+    </div>
+@endif
 
     {{$slot}}
     @livewireScripts
