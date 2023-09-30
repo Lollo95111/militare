@@ -20,17 +20,29 @@
           </li>
           @auth
 
-            <li class="nav-item dropdown">
-              <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          @if (Auth::user()->is_admin)
+
+          <li>
+
+              <a class="position-relative" href="{{route('admin.dashboard')}}">Zona Revisore
+
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{App\Models\Product::toBeRevisionedCount()}}
+
+                  <span class="visually-hidden">Messaggi non letti</span>
+
+                  </span>
 
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li class="nav-item">
-                  <a class="dropdown-item" href="{{route('product.create')}}"></a>
-                </li>
 
-              </ul>
-            </li>
+            @endif
+
+
+          <li class="nav-item">
+
+            <a class="nav-link mx-2" href="{{route('product.create')}}">Aggiungi Prodotti</a>
+
+          </li>
+
           @endauth
           <li class="nav-item dropdown">
             <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -109,10 +121,6 @@
 
 
 <style>
-
-
-
-
 
 #navbar {
   top: 0;

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 
 /*
@@ -21,3 +22,18 @@ Route::get('/product/create', [ProductController::class, 'create'])->name('produ
 Route::get('/product/index',[ProductController::class,'index'])->name('product.index');
 Route::get('/product/show/{product}',[ProductController::class,'show'])->name('product.show');
 Route::get('/product/byCategory/{category}', [ProductController::class, 'byCategory'])->name('product.bycategory');
+
+
+
+
+/*AMMINISTRAZIONE*/
+
+Route::get('/admin/dashboard',[AdminController::class,'index'])->name('admin.dashboard');
+
+Route::patch('/accetta/annuncio/{product}',[AdminController::class,'acceptProduct'])->name('admin.accept_product');
+
+Route::patch('/rifiuta/annuncio/{product}',[AdminController::class,'rejectProduct'])->name('admin.reject_product');
+
+Route::post('/admin/reverse/{product}', [AdminController::class,'setReverseProduct'])->name('admin.reverse');
+
+Route::delete('/elimina/annuncio/{product}',[AdminController::class,'deleteProduct'])->name('admin.delete');

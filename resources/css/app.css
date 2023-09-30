@@ -1,9 +1,9 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
+@import './card.css';
 
 
 
-
-
+/*!PRODUCT FORM*/
 
 .login-box {
 
@@ -227,3 +227,9 @@ button {
 }
 
 }
+
+
+
+
+
+
