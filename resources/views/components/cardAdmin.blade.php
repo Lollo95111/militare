@@ -74,24 +74,19 @@
             @foreach($product->images as $image)
         <table class="mx-3 table">
 
-            <tr>
-                <th>
-                    Tags
-                </th>
-            </tr>
-
-
             @if($image->labels)
-            @foreach($image->labels as $label)
-            <tr >
-                <td >
-                    {{$label}}
-                </td>
-            </tr>
 
-            @endforeach
+            <li class="nav-item dropdown">
+                <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Tags
+                </a>
+                <ul class="dropdown-menu" style="height: 200px; overflow-y:scroll;" aria-labelledby="navbarDropdownMenuLink">
+                    @foreach($image->labels as $label)
+                     <p>{{$label}}</p>
+                     @endforeach
+                </ul>
+              </li>
             @endif
-
 
         </table>
         @endforeach

@@ -1,9 +1,7 @@
 <x-layout>
 
     <div class="container vh50 my-4">
-        <div class="row">
-            <h4>Tutti gli utenti</h4>
-        </div>
+
         <div class="row">
             <div class="col-12">
                 <h3>{{$product_to_check ? 'ecco l annuncio da revisionare':'Non ci sono annunci da revisionare'}}</h3>
@@ -47,13 +45,17 @@
     <div class="container-fluid">
         <div class="row justify-content-center mt-5">
             <div class="col-12 col-md-8">
+                <div class="table-respondive">
                 <table class="table">
-                    <thead>
+                    <thead >
                         <tr>
+
                             <th scope="col">Nome</th>
                             <!-- <th scope="col">Descrizione</th> -->
                             <th scope="col">Prezzo</th>
                             <th scope="col">Categoria</th>
+                            <th scope="col">Creato da</th>
+                            <th scope="col">Data</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,6 +65,9 @@
                             <!-- <td class="text-truncate">{{$product_to_check->description}}</td> -->
                             <td>{{$product_to_check->price}}</td>
                             <td>{{$product_to_check->category->name}}</td>
+                            <td>{{$product_to_check->user->name}}</td>
+                            <td>{{$product_to_check->created_at}}</td>
+
 
 
                             <td>
@@ -85,6 +90,7 @@
                     </tbody>
                 </table>
             </div>
+        </div>
         </div>
     </div>
 

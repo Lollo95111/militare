@@ -24,7 +24,7 @@
 
           <li>
 
-              <a class="position-relative" href="{{route('admin.dashboard')}}">Zona Revisore
+              <a class="position-relative" href="{{route('admin.dashboard')}}">Admin
 
                   <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{App\Models\Product::toBeRevisionedCount()}}
 

@@ -55,7 +55,6 @@
        <p class="card-text text-truncate col-9">{!!$product->description!!}</p>
 
 
-
               <div class="card-footer rounded">
 
                   <p class="card-text">{{$product->price}}€/mese</p>

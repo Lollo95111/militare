@@ -112,7 +112,7 @@ class SongCreateForm extends Component
 
 
          $this->validate();
-
+         $this->user_id=Auth::user()->id;
          $product = Product::create([
 
              'name'=>$this->name,
