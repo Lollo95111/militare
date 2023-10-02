@@ -22,7 +22,7 @@ Route::get('/product/create', [ProductController::class, 'create'])->name('produ
 Route::get('/product/index',[ProductController::class,'index'])->name('product.index');
 Route::get('/product/show/{product}',[ProductController::class,'show'])->name('product.show');
 Route::get('/product/byCategory/{category}', [ProductController::class, 'byCategory'])->name('product.bycategory');
-
+Route::get('ricerca/annuncio',[ProductController::class,'searchProduct'])->name('products.search');
 
 /*ROTTE USERS*/
 // Route::middleware(['Auth'])->group(function () {

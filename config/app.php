@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Scout\ScoutServiceProvider;
+use TeamTNT\Scout\TNTSearchScoutServiceProvider;
 
 return [
 
@@ -160,6 +162,7 @@ return [
          * Package Service Providers...
          */
         App\Providers\FortifyServiceProvider::class,
+        TNTSearchScoutServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -169,6 +172,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        ScoutServiceProvider::class,
     ])->toArray(),
 
     /*

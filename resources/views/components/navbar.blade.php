@@ -93,13 +93,13 @@
 
           @endif
 
-        <div class="ms-5">
-          <form action="" method='GET' class="d-flex ricerca">
-            <div class="InputContainer">
-                <input placeholder="Search.." id="input" class="input" name="searched" type="search">
-            </div>
-          </form>
-        </div>
+          <div class="ms-5">
+            <form action="{{ route('products.search') }}" method='GET' class="d-flex ricerca">
+              <div class="InputContainer">
+                  <input placeholder="Search.." id="input" class="input" name="searched" type="search">
+              </div>
+            </form>
+          </div>
 
       </div>
     </div>

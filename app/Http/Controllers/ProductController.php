@@ -83,4 +83,13 @@ class ProductController extends Controller
 
     }
 
+
+    public function searchProduct(Request $request){
+
+        $products = Product::search($request->searched)->where('is_accepted', true)->paginate(10);
+
+                return view('product.index', compact('products'));
+
+            }
+
 }

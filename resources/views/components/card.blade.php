@@ -57,7 +57,7 @@
 
               <div class="card-footer rounded">
 
-                  <p class="card-text">{{$product->price}}€/mese</p>
+                  <p class="card-text">{{$product->price}}€</p>
 
               </div>
 

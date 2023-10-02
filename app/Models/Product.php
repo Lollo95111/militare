@@ -7,11 +7,12 @@ use App\Models\Image;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravel\Scout\Searchable;
 
 class Product extends Model
 {
-    use HasFactory;
-    protected $fillable = ['name','price','description','category_id','user_id'];
+    use HasFactory,Searchable;
+    protected $fillable = ['name','price','description','category_id','user_id','category'];
 
 
 
@@ -58,6 +59,7 @@ public static function toBeRevisionedCount(){
 
 }
 
+
 public function setReverse()
 
 {
@@ -68,4 +70,30 @@ public function setReverse()
 
 
 }
+
+
+
+public function toSearchebleArray(){
+
+    $category = $this->category;
+
+    $array =[
+
+    'id'=> $this->id,
+
+    'name'=> $this->name,
+
+    'description'=>$this->description,
+
+    "category"=> $category,
+
+    ];
+
+    return $array;
+
+    }
+
+
+
+
 }
