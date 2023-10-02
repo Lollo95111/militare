@@ -16,6 +16,29 @@ class Product extends Model
 
 
 
+
+    public function toSearchebleArray():array{
+
+        $category = $this->category;
+
+        $array =[
+
+        'id'=> $this->id,
+
+        'name'=> $this->name,
+
+        'description'=>$this->description,
+
+        "category"=> $category
+
+        ];
+
+        return $array;
+
+        }
+
+
+
     public function category(){
 
         return $this->belongsTo(Category::class);
@@ -72,26 +95,6 @@ public function setReverse()
 }
 
 
-
-public function toSearchebleArray(){
-
-    $category = $this->category;
-
-    $array =[
-
-    'id'=> $this->id,
-
-    'name'=> $this->name,
-
-    'description'=>$this->description,
-
-    "category"=> $category,
-
-    ];
-
-    return $array;
-
-    }
 
 
 

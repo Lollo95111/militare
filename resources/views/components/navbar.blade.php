@@ -140,7 +140,7 @@ font-size: 17px;
 }
 
 .nav-link{
-  color: rgba(9, 61, 78, 0.829);
+  color: rgba(0, 0, 0, 0.829);
   font-weight: bold;
 }
 
@@ -304,7 +304,7 @@ padding: 5px;
     text-decoration: underline;
 }
 .button-custom{
-    background-color: rgba(0, 70, 88, 0.9);
+    background-color: rgba(7, 21, 23, 0.9);
     border-radius: 21px;
     color: #fffff2;
     display: inline-block;
