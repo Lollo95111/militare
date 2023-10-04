@@ -1,5 +1,23 @@
 <x-layout>
 
+
+
+
+
+@foreach ($productGenders as $gender)
+
+    <form action="{{ route('product.gender', compact('gender','category') )}}" method="GET">
+
+        <input type="radio" name="gender" value="automatiche">
+
+        <button type="submit">
+           {{$gender->name}}
+          </button>
+       </form>
+       @endforeach
+
+
+
     <div class="container my-5">
 
         <div class="row">

@@ -76,6 +76,24 @@
 
 
 
+              <div class="form-group">
+
+                <label class="form-control-label">GENERI</label>
+
+                <select class="form-control" wire:model.blur="gender_id">
+
+                  <option value="null" disabled>seleziona genere</option>
+
+                  @foreach($productGenders as $gender)
+
+                  <option value="{{$gender->id}}">{{$gender->name}}</option>
+
+                  @endforeach
+
+                </select>
+
+
+
 
               <div class="form-group">
 
@@ -87,10 +105,10 @@
 
               </div>
 
+
+
+
               <div class="form--group">
-
-
-
 
                 <label class="form-control-label">COPERTINA</label>
 

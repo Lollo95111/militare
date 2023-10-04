@@ -4,15 +4,16 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Image;
+use App\Models\Gender;
 use App\Models\Category;
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Laravel\Scout\Searchable;
 
 class Product extends Model
 {
     use HasFactory,Searchable;
-    protected $fillable = ['name','price','description','category_id','user_id','category'];
+    protected $fillable = ['name','price','description','category_id','user_id','category','gender','gender_id'];
 
 
 
@@ -45,6 +46,12 @@ class Product extends Model
 
     }
 
+
+    public function gender(){
+
+        return $this->belongsTo(Gender::class);
+
+    }
 
 
     public function user(){

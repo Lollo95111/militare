@@ -15,6 +15,7 @@ class SongCreateForm extends Component
 {
 
     use WithFileUploads;
+
     public $name;
 
     public $validate;
@@ -31,6 +32,8 @@ class SongCreateForm extends Component
 
     public $user_id;
 
+    public $gender_id;
+
 
 
 
@@ -46,7 +49,9 @@ class SongCreateForm extends Component
 
         'images.*'=> 'image|max:1024',
 
-        'temporary_images.*'=> 'image|max:1024'
+        'temporary_images.*'=> 'image|max:1024',
+
+        'gender_id'=>'required'
 
     ];
 
@@ -60,6 +65,7 @@ class SongCreateForm extends Component
         'description.required'=> "La descrizione non può essere vuota",
         'price'=>"il prezzo non può essere vuoto",
         'category_id'=>"Devi scegliere una categoria !",
+        'gender_id'=>"Devi scegliere un genere !",
 
         'temporary_image.*.required'=> "L\' immagine è richiesta",
         'temporary_image.*.image' => "il file devono essere immagini",
@@ -102,15 +108,6 @@ class SongCreateForm extends Component
 
 
     public function store(){
-
-
-
-
-        $this->user_id=Auth::user()->id;
-
-
-
-
          $this->validate();
          $this->user_id=Auth::user()->id;
          $product = Product::create([
@@ -124,6 +121,8 @@ class SongCreateForm extends Component
              'description'=>$this->description,
 
              'user_id'=>$this->user_id,
+
+             'gender_id'=>$this->gender_id
 
          ]);
 

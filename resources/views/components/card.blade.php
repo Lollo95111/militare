@@ -52,6 +52,25 @@
 
               @endif
 
+
+
+
+              @if($product->gender)
+
+              <a href="">
+
+                     <p>{{ $product->gender->name }}</p>
+
+                 </a>
+
+             @else
+
+                 <p>Senza Genere</p>
+
+             @endif
+
+
+
        <p class="card-text text-truncate col-9">{!!$product->description!!}</p>
 
 

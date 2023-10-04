@@ -29,7 +29,7 @@ Route::get('ricerca/annuncio',[ProductController::class,'searchProduct'])->name(
 // Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
 // });
 
-
+Route::get('product/gender/{gender}/{category}',[ProductController::class,'filterBygender'])->name('product.gender');
 
 
 

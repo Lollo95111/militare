@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Gender;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Support\Facades\View;
@@ -32,6 +33,17 @@ class AppServiceProvider extends ServiceProvider
             View::share(compact('productCategories'));
 
         }
+
+
+        if (Schema::hasTable('genders')) {
+
+            $productGenders = Gender::all();
+
+            View::share(compact('productGenders'));
+
+        }
+
+
 
         if (Schema::hasTable('products')) {
             $products = Product::all();

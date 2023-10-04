@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gender;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -31,6 +32,7 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $genders = Gender::all();
 
         return view('product.create');
     }
@@ -91,5 +93,25 @@ class ProductController extends Controller
                 return view('product.index', compact('products'));
 
             }
+
+
+
+
+            public function filterBygender(Gender $gender ,Category $category){
+
+                $products = $category->products->where('gender_id',$gender->id);
+
+                return view('product.generi',compact('products'));
+
+                }
+
+
+
+
+
+
+
+
+
 
 }
