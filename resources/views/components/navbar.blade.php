@@ -49,7 +49,7 @@
           @endauth
           <li class="nav-item dropdown">
             <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Categorie
+            Armi
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               @foreach($productCategories as $category)
@@ -82,11 +82,18 @@
 
       <label class="hamburger" for="toggleMenu">
           <input type="checkbox" id="toggleMenu">
-          <svg viewBox="0 0 32 32">
+          {{-- <svg viewBox="0 0 32 32">
               <path class="line line-top-bottom"
                   d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
               <path class="line" d="M7 16 27 16"></path>
-          </svg>
+          </svg> --}}
+
+
+          <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 576 512">
+            <path d="M246.9 14.1C234 15.2 224 26 224 39c0 13.8 11.2 25 25 25H400c8.8 0 16-7.2 16-16V17.4C416 8 408 .7 398.7 1.4L246.9 14.1zM240 112c0 44.2 35.8 80 80 80s80-35.8 80-80c0-5.5-.6-10.8-1.6-16H241.6c-1 5.2-1.6 10.5-1.6 16zM72 224c-22.1 0-40 17.9-40 40s17.9 40 40 40H224v89.4L386.8 230.5c-13.3-4.3-27.3-6.5-41.6-6.5H240 72zm345.7 20.9L246.6 416H416V369.7l53.6 90.6c11.2 19 35.8 25.3 54.8 14.1s25.3-35.8 14.1-54.8L462.3 290.8c-11.2-18.9-26.6-34.5-44.6-45.9zM224 448v32c0 17.7 14.3 32 32 32H384c17.7 0 32-14.3 32-32V448H224z"/>
+        </svg>
+
+
       </label>
       @if(Auth::user() == null)
         <ul class="dropdown-menu " id="loginRegisterDropdown">
@@ -113,12 +120,18 @@
           @endif
 
           <div class="ms-5">
-            <form action="{{ route('products.search') }}" method='GET' class="d-flex ricerca">
+            <form action="{{ route('products.search') }}" method='GET' class="d-flex">
               <div class="InputContainer">
                   <input placeholder="Search.." id="input" class="input" name="searched" type="search">
               </div>
             </form>
           </div>
+
+
+
+
+
+
 
       </div>
     </div>
@@ -139,6 +152,9 @@
 
 
 <style>
+
+
+
 
 #navbar {
   top: 0;
@@ -208,11 +224,11 @@ height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom,rgb(227, 213, 255),rgb(255, 231, 231));
-  border-radius: 30px;
+  background: linear-gradient(to bottom,rgba(0, 0, 0, 0.915),rgba(39, 11, 11, 0.768));
+  border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
+  box-shadow: 2px 2px 10px rgba(42, 1, 1, 0.075);
 }
 
 .input {
@@ -221,11 +237,11 @@ height: 100px;
   border: none;
   outline: none;
   caret-color: rgb(255, 81, 0);
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(51, 48, 48, 0.308);
   border-radius: 30px;
   padding-left: 15px;
   letter-spacing: 0.8px;
-  color: rgb(19, 19, 19);
+  color: rgb(255, 255, 255);
   font-size: 13.4px;
   right: 80px;
 }
@@ -253,14 +269,14 @@ padding: 5px;
 
 .hamburger svg {
   /* The size of the SVG defines the overall size */
-  height: 3em;
+  height: 2em;
   /* Define the transition for transforming the SVG */
   transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .line {
   fill: none;
-  stroke: rgb(0, 109, 145);
+  stroke: rgb(0, 0, 0);
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 3;
