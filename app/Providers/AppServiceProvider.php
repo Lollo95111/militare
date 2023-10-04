@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Gender;
 use App\Models\Product;
 use App\Models\Category;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -49,5 +50,7 @@ class AppServiceProvider extends ServiceProvider
             $products = Product::all();
             View::share('products', $products);
         }
+
+        Paginator::useBootstrapFive();
     }
 }

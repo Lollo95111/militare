@@ -20,7 +20,7 @@ class ProductController extends Controller
 
     public function index(){
 
-            $products = Product::oldest()->get();
+            $products =  Product::paginate(8);
 
             return view('product.index', compact('products'));
         }
@@ -85,6 +85,13 @@ class ProductController extends Controller
 
     }
 
+    public function byGender(Gender $gender){
+
+        return view('product.bygender', compact('gender'));
+
+    }
+
+
 
     public function searchProduct(Request $request){
 
@@ -102,6 +109,15 @@ class ProductController extends Controller
                 $products = $category->products->where('gender_id',$gender->id);
 
                 return view('product.generi',compact('products'));
+
+                }
+
+
+            public function filterBycategory(Category $category , Gender $gender){
+
+                $products = $gender->products->where('category_id',$category->id);
+
+                return view('product.categorie',compact('products'));
 
                 }
 

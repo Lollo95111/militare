@@ -18,6 +18,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('product.index')}}">Store</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('contatti')}}">Lavora con noi</a>
+          </li>
           @auth
 
           @if (Auth::user()->is_admin)
@@ -54,6 +57,22 @@
               @endforeach
             </ul>
           </li>
+
+
+
+
+          <li class="nav-item dropdown">
+            <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Generi
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              @foreach($productGenders as $gender)
+                <a class="dropdown-item" href="{{route('product.bygender',compact('gender'))}}">{{$gender->name}}</a>
+              @endforeach
+            </ul>
+          </li>
+
+
 
           </li>
         </ul>

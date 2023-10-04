@@ -22,6 +22,8 @@ class Product extends Model
 
         $category = $this->category;
 
+        $gender = $this->gender;
+
         $array =[
 
         'id'=> $this->id,
@@ -30,7 +32,9 @@ class Product extends Model
 
         'description'=>$this->description,
 
-        "category"=> $category
+        "category"=> $category,
+
+        "gender"=>$gender
 
         ];
 

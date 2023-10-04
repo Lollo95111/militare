@@ -57,7 +57,7 @@
 
               @if($product->gender)
 
-              <a href="">
+              <a href="{{ route('product.bygender', $product->gender) }}">
 
                      <p>{{ $product->gender->name }}</p>
 
