@@ -4,7 +4,7 @@
 
 
 
-<nav  id="navbar" class="navbar navbar-expand-lg bg-primary-dark fixed-top">
+<nav  id="navbar" class="navbar navbar-expand-lg ">
     <div class="container-fluid">
       <a class="navbar-brand" href="{{route('welcome')}}"> <img id="logo" src="/militare.png" alt="logo"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -104,8 +104,7 @@
       </div>
     </div>
   </nav>
-  <br>
-  <br>
+
 
 
 
@@ -145,7 +144,9 @@ font-size: 17px;
 }
 
 .navbar {
-  background-color: rgba(59, 54, 7, 0.767);
+    background: rgb(63,71,7);
+background: linear-gradient(90deg, rgba(63,71,7,0.8576680672268908) 0%, rgba(56,61,14,0.8744747899159664) 50%, rgba(87,103,29,0.6559873949579832) 100%);
+
   padding: 10px;
   display: flex;
   transition: 0.6s;
