@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\User;
 use App\Models\Image;
 use App\Models\Gender;
+use App\Models\caliber;
 use App\Models\Category;
 use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
@@ -13,12 +14,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Product extends Model
 {
     use HasFactory,Searchable;
-    protected $fillable = ['name','price','description','category_id','user_id','category','gender','gender_id'];
+    protected $fillable = ['name','price','description','category_id','user_id','gender_id','caliber_id'];
 
 
 
 
     public function toSearchebleArray():array{
+
+        $caliber = $this->caliber;
 
         $category = $this->category;
 
@@ -34,7 +37,9 @@ class Product extends Model
 
         "category"=> $category,
 
-        "gender"=>$gender
+        "gender"=>$gender,
+
+        "caliber"=>$caliber
 
         ];
 
@@ -55,6 +60,11 @@ class Product extends Model
 
         return $this->belongsTo(Gender::class);
 
+    }
+
+
+    public function caliber(){
+        return $this->belongsTo(caliber::class);
     }
 
 

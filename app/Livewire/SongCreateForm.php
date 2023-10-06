@@ -34,6 +34,8 @@ class SongCreateForm extends Component
 
     public $gender_id;
 
+    public $caliber_id;
+
 
 
 
@@ -51,7 +53,9 @@ class SongCreateForm extends Component
 
         'temporary_images.*'=> 'image|max:1024',
 
-        'gender_id'=>'required'
+        'gender_id'=>'required',
+
+        'caliber_id'=>'required'
 
     ];
 
@@ -66,6 +70,7 @@ class SongCreateForm extends Component
         'price'=>"il prezzo non può essere vuoto",
         'category_id'=>"Devi scegliere una categoria !",
         'gender_id'=>"Devi scegliere un genere !",
+        'caliber_id'=>"Devi scegliere un calibro ! ",
 
         'temporary_image.*.required'=> "L\' immagine è richiesta",
         'temporary_image.*.image' => "il file devono essere immagini",
@@ -122,7 +127,9 @@ class SongCreateForm extends Component
 
              'user_id'=>$this->user_id,
 
-             'gender_id'=>$this->gender_id
+             'gender_id'=>$this->gender_id,
+
+             'caliber_id'=>$this->caliber_id
 
          ]);
 
@@ -147,8 +154,6 @@ class SongCreateForm extends Component
              }
 
              File::deleteDirectory(storage_path('/app/livewire-tmp'));
-
-
 
 
          }

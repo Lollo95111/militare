@@ -73,7 +73,7 @@
                 @endforeach
 
               </select>
-
+            </div>
 
 
               <div class="form-group">
@@ -91,7 +91,25 @@
                   @endforeach
 
                 </select>
+            </div>
 
+
+            <div class="form-group">
+
+                <label class="form-control-label">CALIBRI</label>
+
+                <select class="form-control" wire:model.blur="caliber_id">
+
+                  <option value="null" disabled>seleziona calibro</option>
+
+                  @foreach($productCalibers as $caliber)
+
+                  <option value="{{$caliber->id}}">{{$caliber->name}}</option>
+
+                  @endforeach
+
+                </select>
+            </div>
 
 
 

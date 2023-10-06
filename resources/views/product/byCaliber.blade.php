@@ -11,7 +11,7 @@
 
             <div class="col-12">
 
-                <h2>Prodotti per Categoria {{ $category->name }}</h2>
+                <h2>Prodotti per Calibro {{ $caliber->name }}</h2>
 
             </div>
 
@@ -26,36 +26,29 @@
     <div class="row">
 
 
-
-
-
-
-        <div class="col-3 p-3">
+        <div class="col-2 p-3">
             @foreach ($productGenders as $gender)
 
-            <form id="formGender" action="{{ route('product.gender', compact('category','gender') )}}" method="GET">
+            <form id="formGender" action="{{ route('product.caliberGen', compact('caliber','gender') )}}" method="GET">
 
-                <input name="category" onchange="this.form.submit()" type="checkbox">
+                <input name="caliber" onchange="this.form.submit()" type="checkbox">
                   <label > {{$gender->name}}</label>
                </form>
                @endforeach
             </div>
 
 
+            <div class="col-2 p-3">
 
+                @foreach ($productCategories as $category)
 
-            <div class="col-3 p-3">
-                @foreach ($productCalibers as $caliber)
+                <form id="formCategory" action="{{ route('product.caliberCat', compact('caliber','category') )}}" method="GET">
 
-                <form id="formCategory" action="{{ route('product.categoryCal', compact('category','caliber') )}}" method="GET">
-
-                    <input name="category" onchange="this.form.submit()" type="checkbox">
-                      <label > {{$caliber->name}}</label>
+                    <input name="caliber" onchange="this.form.submit()" type="checkbox">
+                      <label > {{$category->name}}</label>
                    </form>
                    @endforeach
                 </div>
-
-
 
 
 
@@ -63,7 +56,7 @@
 
                 <div class="row my-3">
 
-                    @foreach($category->products as $product)
+                    @foreach($caliber->products as $product)
 
                         <div class="col-12 col-md-4">
 
@@ -87,3 +80,4 @@
 
 
 </x-layout>
+

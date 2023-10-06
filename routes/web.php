@@ -21,18 +21,27 @@ use App\Http\Controllers\ProductController;
 Route::get('/', [ProductController::class, 'home'])->name('welcome');
 Route::get('/product/index',[ProductController::class,'index'])->name('product.index');
 Route::get('/product/show/{product}',[ProductController::class,'show'])->name('product.show');
+
 Route::get('/product/byCategory/{category}', [ProductController::class, 'byCategory'])->name('product.bycategory');
 Route::get('/product/byGender/{gender}', [ProductController::class, 'byGender'])->name('product.bygender');
+Route::get('/product/byCaliber/{caliber}', [ProductController::class, 'byCaliber'])->name('product.bycaliber');
+
+/*FILTRI*/
+Route::get('product/gender/{gender}/{category}',[ProductController::class,'filterBygender'])->name('product.gender');
+Route::get('product/gender2/{gender}/{caliber}',[ProductController::class,'filterBygenderCal'])->name('product.genderCal');
+
+Route::get('product/category/{category}/{gender}',[ProductController::class,'filterBycategory'])->name('product.category');
+Route::get('product/category2/{category}/{caliber}',[ProductController::class,'filterBycategoryCal'])->name('product.categoryCal');
+
+Route::get('product/caliber/{caliber}/{gender}',[ProductController::class,'filterBycaliberGen'])->name('product.caliberGen');
+Route::get('product/caliber2/{caliber}/{category}',[ProductController::class,'filterBycaliberCat'])->name('product.caliberCat');
+
 Route::get('ricerca/annuncio',[ProductController::class,'searchProduct'])->name('products.search');
 
 /*ROTTE USERS*/
  Route::middleware(['auth'])->group(function () {
  Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
  });
-
-Route::get('product/gender/{gender}/{category}',[ProductController::class,'filterBygender'])->name('product.gender');
-
-Route::get('product/category/{category}/{gender}',[ProductController::class,'filterBycategory'])->name('product.category');
 
 
 /*AMMINISTRAZIONE*/

@@ -124,11 +124,11 @@ return [
 
         'fuzzy' => [
 
-            'prefix_length' => 5,
+            'prefix_length' => 8,
 
             'max_expansion'=> 50,
 
-            'distance' => 2, 'no_limit'=>true
+            'distance' => 8, 'no_limit'=>true
 
         ],
 

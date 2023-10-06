@@ -28,6 +28,8 @@
                     <thead>
                         <tr>
                             <th scope="col">Nome:</th>
+                            <th scope="col">Genere:</th>
+                            <th scope="col">Calibro:</th>
                             <th scope="col">Categoria:</th>
                             <th scope="col">Prezzo:</th>
                             <th scope="col">Venditore:</th>
@@ -37,6 +39,8 @@
                     <tbody>
                         <tr>
                             <th scope="row">{{ $product->name }}</th>
+                            <td>{{$product->gender->name}}</td>
+                            <td>{{$product->caliber->name}}</td>
                             <td>{{ $product->category->name }}</td>
                             <td>{{ $product->price }}€</td>
                             <td>{{ $product->user->name }}</td>

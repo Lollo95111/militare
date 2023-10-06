@@ -71,6 +71,24 @@
 
 
 
+
+
+             @if($product->caliber)
+
+             <a href="{{ route('product.bycaliber', $product->caliber) }}">
+
+                    <p>{{ $product->caliber->name }}</p>
+
+                </a>
+
+            @else
+
+                <p>Senza Calibro</p>
+
+            @endif
+
+
+
        <p class="card-text text-truncate col-9">{!!$product->description!!}</p>
 
 

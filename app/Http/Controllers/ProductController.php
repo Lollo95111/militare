@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gender;
+use App\Models\caliber;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -12,18 +13,19 @@ class ProductController extends Controller
 
 
 
-    public function home(){
+    public function home()
+    {
 
         return view('welcome');
-
     }
 
-    public function index(){
+    public function index()
+    {
 
-            $products =  Product::paginate(8);
+        $products =  Product::paginate(8);
 
-            return view('product.index', compact('products'));
-        }
+        return view('product.index', compact('products'));
+    }
 
 
     /**
@@ -33,6 +35,7 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         $genders = Gender::all();
+        $calibers = caliber::all();
 
         return view('product.create');
     }
@@ -50,7 +53,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('product.show',compact('product'));
+        return view('product.show', compact('product'));
     }
 
     /**
@@ -79,51 +82,96 @@ class ProductController extends Controller
 
 
 
-    public function byCategory(Category $category){
+    public function byCategory(Category $category)
+    {
 
         return view('product.bycategory', compact('category'));
-
     }
 
-    public function byGender(Gender $gender){
+    public function byGender(Gender $gender)
+    {
 
         return view('product.bygender', compact('gender'));
-
     }
 
 
 
-    public function searchProduct(Request $request){
+    public function byCaliber(caliber $caliber)
+    {
+
+        return view('product.bycaliber', compact('caliber'));
+    }
+
+
+
+
+
+    public function searchProduct(Request $request)
+    {
 
         $products = Product::search($request->searched)->where('is_accepted', true)->paginate(8);
 
-                return view('product.index', compact('products'));
-
-            }
-
-
-
-
-            public function filterBygender(Gender $gender ,Category $category){
-
-                $products = $category->products->where('gender_id',$gender->id);
-
-                return view('product.generi',compact('products'));
-
-                }
-
-
-            public function filterBycategory(Category $category , Gender $gender){
-
-                $products = $gender->products->where('category_id',$category->id);
-
-                return view('product.categorie',compact('products'));
-
-                }
+        return view('product.index', compact('products'));
+    }
 
 
 
 
+    public function filterBygender(Gender $gender, Category $category)
+    {
+
+        $products = $category->products->where('gender_id', $gender->id);
+
+        return view('product.generi', compact('products'));
+    }
+
+public function filterBygenderCal(Gender $gender, caliber $caliber) {
+
+    $products = $caliber->products->where('gender_id',$gender->id);
+
+    return view('product.generi', compact('products'));
+}
+
+
+
+
+    public function filterBycategory(Category $category, Gender $gender)
+    {
+
+        $products = $gender->products->where('category_id', $category->id);
+
+        return view('product.categorie', compact('products'));
+    }
+
+    public function filterBycategoryCal(Category $category, caliber $caliber)
+    {
+
+        $products = $caliber->products->where('category_id', $category->id);
+
+        return view('product.categorie', compact('products'));
+    }
+
+
+
+
+
+
+    public function filterBycaliberGen(caliber $caliber, Gender $gender)
+    {
+
+        $products = $gender->products->where('caliber_id', $caliber->id);
+
+        return view('product.calibri', compact('products'));
+    }
+
+    public function filterBycaliberCat(caliber $caliber, Category $category)
+    {
+
+        $products = $category->products->where('caliber_id', $caliber->id);
+
+
+        return view('product.calibri', compact('products'));
+    }
 
 
 

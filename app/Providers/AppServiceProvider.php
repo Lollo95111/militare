@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Gender;
+use App\Models\caliber;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Pagination\Paginator;
@@ -41,6 +42,15 @@ class AppServiceProvider extends ServiceProvider
             $productGenders = Gender::all();
 
             View::share(compact('productGenders'));
+
+        }
+
+
+        if (Schema::hasTable('calibers')) {
+
+            $productCalibers = caliber::all();
+
+            View::share(compact('productCalibers'));
 
         }
 

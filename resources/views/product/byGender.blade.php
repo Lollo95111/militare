@@ -19,6 +19,9 @@
 
 <div class="container-fluid">
     <div class="row">
+
+
+
         <div class="col-3 p-3">
             @foreach ($productCategories as $category)
 
@@ -29,6 +32,23 @@
                </form>
                @endforeach
             </div>
+
+
+<div class="col-3 p-3">
+            @foreach ($productCalibers as $caliber)
+
+            <form id="formCategory" action="{{ route('product.genderCal', compact('gender','caliber') )}}" method="GET">
+
+                <input name="gender" onchange="this.form.submit()" type="checkbox">
+                  <label > {{$caliber->name}}</label>
+               </form>
+               @endforeach
+            </div>
+
+
+
+
+
             <div class="col-9">
 
                 <div class="row my-3">
